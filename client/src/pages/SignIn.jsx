@@ -6,6 +6,8 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
+
 function SignIn() {
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
@@ -20,7 +22,7 @@ function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        dispatch(signInStart());
+      dispatch(signInStart());
       const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: {
@@ -31,19 +33,14 @@ function SignIn() {
       const data = await res.json();
       console.log(data);
       if (data.success === false) {
-        // setLoading(false);
-        // setError(data.message);
-          dispatch(signInFailure(data.message));
+        dispatch(signInFailure(data.message));
         return;
       }
-      // setLoading(false);
-      // setError(null);
-       dispatch(signInSuccess(data));
+
+      dispatch(signInSuccess(data));
       navigate("/");
     } catch (error) {
-      // setLoading(false);
-      // setError(error.message);
-         dispatch(signInFailure(error.message));
+      dispatch(signInFailure(error.message));
     }
   };
   return (
@@ -71,7 +68,7 @@ function SignIn() {
         >
           {loading ? "Loading..." : "Sign In"}
         </button>
-        {/* <OAuth /> */}
+        <OAuth />
       </form>
       <div className="flex gap-2 mt-5">
         <p>Do not have an account?</p>
