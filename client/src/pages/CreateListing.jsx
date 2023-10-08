@@ -324,7 +324,7 @@ export default function CreateListing() {
               type="file"
               id="images"
               accept="image/*"
-              multiple
+               multiple
             />
             <button
               type="button"
