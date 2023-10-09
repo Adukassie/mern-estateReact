@@ -4,3 +4,7 @@
 body{
     background-color: rgb(241, 245, 241);
 }
+.under {
+    text-decoration-color: red;
+    text-decoration: underline;
+}

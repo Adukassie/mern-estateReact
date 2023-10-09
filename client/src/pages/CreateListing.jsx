@@ -33,7 +33,6 @@ export default function CreateListing() {
   const [loading, setLoading] = useState(false);
   console.log(formData);
   const handleImageSubmit = (e) => {
-    e.preventDefault();
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
       setImageUploadError(false);
@@ -324,7 +323,7 @@ export default function CreateListing() {
               type="file"
               id="images"
               accept="image/*"
-               multiple
+              multiple
             />
             <button
               type="button"
