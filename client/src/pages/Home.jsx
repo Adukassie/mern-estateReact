@@ -11,7 +11,7 @@ export default function Home() {
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
-  console.log(offerListings);
+ 
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
@@ -40,7 +40,7 @@ export default function Home() {
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
-        log(error);
+       console.log(error);
       }
     };
     fetchOfferListings();
@@ -50,7 +50,7 @@ export default function Home() {
       {/* top */}
       <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto">
         <h1 className="text-slate-700 font-bold text-3xl lg:text-6xl">
-          Find your next <span className="text-slate-500">perfect</span>
+          Find your next <span className="text-red-500">perfect</span>
           <br />
           place with ease
         </h1>
@@ -73,6 +73,7 @@ export default function Home() {
         {offerListings &&
           offerListings.length > 0 &&
           offerListings.map((listing) => (
+            // eslint-disable-next-line react/jsx-key
             <SwiperSlide>
               <div
                 style={{

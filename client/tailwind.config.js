@@ -14,5 +14,6 @@ export default {
       };
       addUtilities(extendUnderline);
     },
+    // require("@tailwindcss/line-clamp"),
   ],
 };
